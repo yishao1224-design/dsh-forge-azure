@@ -1,0 +1,37 @@
+{
+  "name": "@local/dsh-forge-azure",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DeepSeek Harness plugin: a read-only Azure DevOps (Azure Repos) provider for the forge registry, so the Code review page and the session panel show Azure pull requests, their checks, diffs and review threads",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.2.0-alpha.1",
+    "@deepseek-ai/dsh-experimental-forge": "0.2.3-alpha.2",
+    "@types/node": "^24.0.0",
+    "diff": "^9.0.0",
+    "tsdown": "^0.22.2",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "license": "MIT"
+}

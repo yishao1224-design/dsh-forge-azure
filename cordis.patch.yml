@@ -1,0 +1,22 @@
+# Azure DevOps provider for the forge registry: one row, resolved by this package's own name.
+#
+# The row starts once `ctx.forge` exists, which the official "变更请求与工作树" (forge) bundle provides: enable that
+# bundle on the Plugins page first.
+#
+# The token is the same one dsh-okf uses: set DSH_OKF_AZURE_TOKEN (a PAT with Code: Read) before starting `dsh`;
+# DSH_OKF_GIT_TOKEN is the fallback.
+#
+# Optional config (a patch replaces the whole config block):
+#
+#     config:
+#       organizations: ['contoso']   # organizations the Code review page lists pull requests from
+#       tokenEnv: ['DSH_OKF_AZURE_TOKEN', 'DSH_OKF_GIT_TOKEN']
+#       timeoutMs: 30000
+#       maxConcurrentRequests: 6
+#       maxDiffFiles: 300
+#       maxDiffBytes: 4194304
+#       maxReviewThreads: 500
+#       maxViewerItems: 100
+- insert:
+    - id: forge-azure
+      name: '@local/dsh-forge-azure'
